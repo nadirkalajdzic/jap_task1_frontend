@@ -7,7 +7,7 @@ const useButtonStyle = makeStyles({
     },
 
     width: "100px",
-    height: "35px",
+    height: "40px",
     padding: "10px",
     background: "#29323d",
     color: "#ffffff",

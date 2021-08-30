@@ -1,24 +1,67 @@
+@media screen and (min-width: 625px) {
+  .page-header {
+    grid-template-columns: 0.75fr 1.5fr 0.75fr;
+  }
+
+  .header-logo {
+    font-size: clamp(1rem, 5vw, 2rem);
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .page-header {
+    grid-template-rows: repeat(3, auto);
+    row-gap: 20px;
+  }
+
+  .header-logo {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .header-login-or-register {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    column-gap: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .header-login-or-register {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    column-gap: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 625px) and (max-width: 750px) {
+  .header-login-or-register {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
 .page-header {
   display: grid;
-  grid-template-columns: 0.75fr 1.5fr 0.75fr;
   text-align: center;
   align-items: center;
   margin-inline: 5%;
   margin-top: 5%;
+  column-gap: 20px;
 }
 
 .header-logo {
   font-family: var(--custom-logo-font);
   font-style: italic;
   font-weight: bold;
-  font-size: clamp(1rem, 5vw, 2rem);
-}
-
-.header-login-or-register {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  align-items: center;
-  column-gap: 10px;
-  text-align: center;
-  justify-content: center;
 }

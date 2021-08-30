@@ -15,3 +15,7 @@ html {
 .bold {
   font-weight: bold;
 }
+
+.MuiAutocomplete-popupIndicatorOpen {
+  transform: none !important;
+}

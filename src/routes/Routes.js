@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import LandingPage from "../pages/LandingPage/LandingPage";
+import Page404 from "../pages/Page404/Page404";
 
 import PrivateRoute from "./PrivateRoute";
 
@@ -21,6 +22,7 @@ function Routes() {
           component={LandingPage}
           title="Home"
         />
+        <Route path="*" component={Page404} title="404" />
       </Switch>
     </Router>
   );
