@@ -5,6 +5,7 @@ import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
 
 import SearchIcon from "@material-ui/icons/Search";
+import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
 import "./HeaderSearch.css";
 
 export default function HeaderSearch() {
@@ -20,7 +21,6 @@ export default function HeaderSearch() {
       renderInput={(params) => (
         <TextField {...params} label="Search movies..." variant="outlined" />
       )}
-      freeSolo
       renderOption={(option, { inputValue }) => {
         const matches = match(option.title, inputValue);
         const parts = parse(option.title, matches);
