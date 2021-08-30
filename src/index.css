@@ -1,0 +1,17 @@
+/* font of the logo */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+/* general font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+html {
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --custom-logo-font: Orbitron;
+}
+
+.bold {
+  font-weight: bold;
+}

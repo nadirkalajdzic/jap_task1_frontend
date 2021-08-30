@@ -1,0 +1,24 @@
+.page-header {
+  display: grid;
+  grid-template-columns: 0.75fr 1.5fr 0.75fr;
+  text-align: center;
+  align-items: center;
+  margin-inline: 5%;
+  margin-top: 5%;
+}
+
+.header-logo {
+  font-family: var(--custom-logo-font);
+  font-style: italic;
+  font-weight: bold;
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+
+.header-login-or-register {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  column-gap: 10px;
+  text-align: center;
+  justify-content: center;
+}
