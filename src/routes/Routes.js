@@ -7,6 +7,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 
 import PrivateRoute from "./PrivateRoute";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
+import SingleItemPage from "../pages/SingleItemPage/SingleItemPage";
 
 function Routes() {
   return (
@@ -35,6 +36,12 @@ function Routes() {
           path="/register"
           component={RegisterPage}
           title="Register"
+        />
+        <PrivateRoute
+          exact={true}
+          path="/item/:id"
+          component={SingleItemPage}
+          title="Movie"
         />
         <Route path="*" component={Page404} title="404" />
       </Switch>

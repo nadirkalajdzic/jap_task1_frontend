@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 650px) {
   .pair-item {
-    grid-template-rows: repeat(2, 400px);
+    grid-template-rows: repeat(2, 500px);
     padding-top: 50px;
     row-gap: 50px;
   }

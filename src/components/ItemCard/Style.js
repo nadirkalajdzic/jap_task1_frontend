@@ -9,8 +9,8 @@ export const useStyles = makeStyles({
     margin: "0 auto",
   },
   media: {
-    height: 200,
-    width: "65%",
+    height: 300,
+    width: "100%",
     margin: "0 auto",
   },
   title: {

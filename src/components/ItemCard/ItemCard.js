@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-import popcorn from "./popcornimg";
+import popcorn from "../../popcornimg";
 
 import { useStyles, StyledRating } from "./Style";
 import "./ItemCard.css";
@@ -20,8 +20,7 @@ function ItemCard() {
             className={classes.media}
             image={popcorn}
             title="Movie Image"
-          />
-
+          ></CardMedia>
           <CardContent>
             <div className={(classes.ellipsis, classes.title)}>Movie Title</div>
             <div>

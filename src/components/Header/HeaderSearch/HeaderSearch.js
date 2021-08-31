@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import parse from "autosuggest-highlight/parse";
@@ -9,6 +9,8 @@ import HourglassEmptyIcon from "@material-ui/icons/HourglassEmpty";
 import "./HeaderSearch.css";
 
 export default function HeaderSearch() {
+  const [val, setVal] = useState("");
+
   return (
     <Autocomplete
       id="highlights-demo"
@@ -16,7 +18,7 @@ export default function HeaderSearch() {
       size="small"
       className="header-search-input"
       getOptionLabel={(option) => option.title}
-      forcePopupIcon={true}
+      forcePopupIcon
       popupIcon={<SearchIcon />}
       renderInput={(params) => (
         <TextField {...params} label="Search movies" variant="outlined" />
