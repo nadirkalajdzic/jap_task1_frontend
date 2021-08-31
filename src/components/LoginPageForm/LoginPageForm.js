@@ -38,13 +38,11 @@ function LoginPageForm() {
     <div className="auth-page-form">
       <div className="auth-page-input">
         <div className="auth-page-single-input-label">
-          {emailStyle === invalidStyleObj
-            ? "Invalid Email!"
-            : "Email or username"}
+          {emailStyle === invalidStyleObj ? "Invalid Email!" : "Email"}
         </div>
         <div className="auth-page-single-input-input">
           <Input
-            placeholder="e.g. john.doe@gmail.com or johndoe"
+            placeholder="e.g. john.doe@gmail.com"
             type="email"
             value={email}
             onChange={emailChange}
