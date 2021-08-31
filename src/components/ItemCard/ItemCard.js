@@ -5,7 +5,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-import Rating from "@material-ui/lab/Rating";
 import popcorn from "./popcornimg";
 
 import { useStyles, StyledRating } from "./Style";
