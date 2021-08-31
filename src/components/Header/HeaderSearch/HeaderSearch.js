@@ -19,7 +19,7 @@ export default function HeaderSearch() {
       forcePopupIcon={true}
       popupIcon={<SearchIcon />}
       renderInput={(params) => (
-        <TextField {...params} label="Search movies..." variant="outlined" />
+        <TextField {...params} label="Search movies" variant="outlined" />
       )}
       renderOption={(option, { inputValue }) => {
         const matches = match(option.title, inputValue);

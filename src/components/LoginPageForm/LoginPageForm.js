@@ -14,6 +14,7 @@ const invalidStyleObj = { backgroundColor: "var(--invalid-red-color)" };
 function LoginPageForm() {
   const [email, setEmail] = useState("");
   const [emailStyle, setEmailStyle] = useState({});
+
   const [password, setPassword] = useState("");
   const [passwordStyle, setPasswordStyle] = useState({});
 
@@ -32,6 +33,7 @@ function LoginPageForm() {
   };
 
   const classes = useButtonStyle();
+
   return (
     <div className="auth-page-form">
       <div className="auth-page-input">
@@ -42,7 +44,7 @@ function LoginPageForm() {
         </div>
         <div className="auth-page-single-input-input">
           <Input
-            placeholder="Email or username"
+            placeholder="e.g. john.doe@gmail.com or johndoe"
             type="email"
             value={email}
             onChange={emailChange}
