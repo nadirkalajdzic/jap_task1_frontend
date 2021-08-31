@@ -1,6 +1,6 @@
 .page-footer {
   background-color: #edf0f4;
-  color: #798da3;
+  color: var(--grey-color);
   text-align: center;
   padding: 20px;
   font-size: 14px;

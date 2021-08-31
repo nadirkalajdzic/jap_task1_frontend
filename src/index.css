@@ -6,10 +6,14 @@
 
 html {
   font-family: "Open Sans", sans-serif;
+  color: var(--black-color);
 }
 
 :root {
   --custom-logo-font: Orbitron;
+  --grey-color: #798da3;
+  --black-color: #3b4754;
+  --button-color: #29323d;
 }
 
 .bold {
@@ -22,6 +26,10 @@ html {
 
 .rotate {
   animation: rotation 2s infinite linear;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes rotation {
