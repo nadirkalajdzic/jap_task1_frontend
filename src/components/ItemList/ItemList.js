@@ -16,7 +16,7 @@ function ItemList() {
   // pairing logic for cards with show more
   const rows = array.slice(0, more).reduce(function (rows, key, index) {
     return (
-      (index % 2 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+      (index % 2 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
       rows
     );
   }, []);

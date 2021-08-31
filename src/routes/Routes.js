@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import LandingPage from "../pages/LandingPage/LandingPage";
 import Page404 from "../pages/Page404/Page404";
+import LoginPage from "../pages/LoginPage/LoginPage";
 
 import PrivateRoute from "./PrivateRoute";
+import RegisterPage from "../pages/RegisterPage/RegisterPage";
 
 function Routes() {
   return (
@@ -21,6 +23,18 @@ function Routes() {
           path="/landing"
           component={LandingPage}
           title="Home"
+        />
+        <PrivateRoute
+          exact={true}
+          path="/login"
+          component={LoginPage}
+          title="Login"
+        />
+        <PrivateRoute
+          exact={true}
+          path="/register"
+          component={RegisterPage}
+          title="Register"
         />
         <Route path="*" component={Page404} title="404" />
       </Switch>

@@ -14,6 +14,8 @@ html {
   --grey-color: #798da3;
   --black-color: #3b4754;
   --button-color: #29323d;
+  --valid-green-color: #00800042;
+  --invalid-red-color: #ff000024;
 }
 
 .bold {

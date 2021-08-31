@@ -4,7 +4,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
   root: {
-    maxWidth: 300,
+    width: 300,
     boxShadow: "none",
     margin: "0 auto",
   },
@@ -25,6 +25,7 @@ export const useStyles = makeStyles({
   button: {
     borderColor: "var(--button-color)",
     borderWidth: 2,
+    fontWeight: 500,
     color: "var(--button-color)",
   },
   align: {

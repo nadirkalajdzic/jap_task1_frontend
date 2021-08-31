@@ -8,7 +8,6 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import "./LandingPage.css";
 
 import { makeStyles } from "@material-ui/core";
-import ItemCard from "../../components/ItemCard/ItemCard";
 import ItemList from "../../components/ItemList/ItemList";
 const useStyle = makeStyles({
   root: {

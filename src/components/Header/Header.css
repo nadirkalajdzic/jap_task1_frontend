@@ -64,4 +64,5 @@
   font-family: var(--custom-logo-font);
   font-style: italic;
   font-weight: bold;
+  cursor: pointer;
 }
