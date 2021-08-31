@@ -4,19 +4,21 @@
     grid-template-columns: repeat(2, 300px);
     justify-content: center;
     column-gap: 10%;
+    margin-block: 10%;
   }
 }
 
 @media screen and (max-width: 650px) {
   .pair-item {
     grid-template-rows: repeat(2, 400px);
+    padding-top: 50px;
+    row-gap: 50px;
   }
 }
 
 .pair-item {
   display: grid;
   justify-content: center;
-  margin-block: 10%;
 }
 
 .item-list-show-more {

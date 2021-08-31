@@ -30,6 +30,7 @@ export const useStyles = makeStyles({
   align: {
     margin: "0 auto",
     display: "inherit",
+    padding: 20,
   },
   ellipsis: {
     textOverflow: "ellipsis",

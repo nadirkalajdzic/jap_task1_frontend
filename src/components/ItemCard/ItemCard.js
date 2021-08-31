@@ -37,9 +37,7 @@ function ItemCard() {
               className={classes.ellipsis}
               style={{ color: "var(--grey-color)" }}
             >
-              {new Array(100).fill(null).map(() => {
-                return <>i</>;
-              })}
+              This is the description
             </div>
           </CardContent>
         </CardActionArea>
