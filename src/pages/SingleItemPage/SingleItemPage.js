@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Paragraph from "antd/lib/typography/Paragraph";
@@ -13,6 +13,7 @@ import "antd/dist/antd.css";
 import popcorn from "../../popcornimg";
 import { StyledRating } from "../../components/ItemCard/Style";
 import { makeStyles } from "@material-ui/core";
+import { getVideo } from "../../api/videosApi";
 
 const useStyles = makeStyles({
   chip: {
@@ -29,9 +30,30 @@ const useStyles = makeStyles({
 });
 
 function SingleItemPage() {
+  const [item, setItem] = useState();
+  const history = useHistory();
   const params = useParams();
   const classes = useStyles();
-  //useEffect(() => {}, []);
+
+  const id = params.id;
+
+  useEffect(() => {
+    getVideo(id)
+      .then((x) => setItem(x.data.data))
+      .catch(() => history.push("/404"));
+  }, []);
+
+  if (item === undefined)
+    return (
+      <Page>
+        <div style={{ textAlign: "center", marginTop: 200 }}>Loading...</div>
+      </Page>
+    );
+
+  var rating = item.ratings.reduce((a, b) => a + b.value, 0);
+  item.ratings.length !== 0
+    ? (rating = rating / item.ratings.length)
+    : (rating = undefined);
 
   return (
     <Page>
@@ -41,45 +63,70 @@ function SingleItemPage() {
             <Link className="single-item-link-breadcrumb bold" to="/">
               Moviesapp
             </Link>
-            <div className="single-item-page-current">Title</div>
+            <div className="single-item-page-current">{item.title}</div>
           </Breadcrumbs>
         </div>
         <div className="single-item-page-content">
           <div className="single-item-page-image">
             <Image
               className="single-item-img"
-              src={popcorn}
+              src={item.image_Url}
               fallback={popcorn}
             />
           </div>
-          <div className="single-item-page-title">Movie Title</div>
+          <div className="single-item-page-title">{item.title}</div>
           <div className="single-item-page-rating">
-            <p>Rating: 3.0</p>
-            <div>
-              <StyledRating
-                name="read-only"
-                style={{ marginBottom: 10 }}
-                value={3}
-                precision={0.1}
-                style={{ height: 30 }}
-                readOnly
-              />
+            {rating !== undefined ? (
+              <p>Rating: {rating.toFixed(2)}</p>
+            ) : (
+              <p>Not rated yet</p>
+            )}
+            {rating !== undefined && (
+              <div>
+                <StyledRating
+                  name="read-only"
+                  style={{ marginBottom: 10 }}
+                  value={rating}
+                  precision={0.1}
+                  style={{ height: 30 }}
+                  readOnly
+                />
+              </div>
+            )}
+          </div>
+          <div className="font-styling">
+            Release date: {new Date(item.releaseDate).toDateString()}
+          </div>
+          <div className="margin-top font-styling inline">
+            <div>Categories</div>
+            <div className="single-item-page-chips">
+              {item.categories.map((x) => {
+                return (
+                  <Chip size="small" label={x.name} className={classes.chip} />
+                );
+              })}
             </div>
           </div>
-          <div className="single-item-page-chips">
-            <Chip size="small" label="ACTION" className={classes.chip} />
-            <Chip size="small" label="COMEDY" className={classes.chip} />
-            <Chip size="small" label="ROMANCE" className={classes.chip} />
-            <Chip size="small" label="THRILLER" className={classes.chip} />
+          <div className="font-styling inline">
+            <div>Actors</div>
+            <div className="single-item-page-chips">
+              {item.actors.map((x) => {
+                return (
+                  <Chip
+                    size="small"
+                    label={x.name + " " + x.surname}
+                    className={classes.chip}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="single-item-page-description">
             <Paragraph
               className={classes.paragraph}
               ellipsis={{ rows: 7, expandable: true, symbol: "show more" }}
             >
-              {new Array(1430).fill("s").map(() => (
-                <>s</>
-              ))}
+              {item.description}
             </Paragraph>
           </div>
         </div>

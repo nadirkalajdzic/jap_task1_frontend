@@ -59,13 +59,22 @@
 
 .single-item-page-rating {
   display: grid;
-  grid-template-columns: 80px 120px;
+  grid-template-columns: 90px 120px;
   font-size: 16px;
   height: 30px;
 }
 
-.single-item-page-description {
+.font-styling {
+  font-size: 16px;
+  height: 30px;
+}
+
+.margin-top {
   margin-top: 20px;
+}
+
+.single-item-page-description {
+  margin-top: 40px;
   padding-bottom: 100px;
 }
 
