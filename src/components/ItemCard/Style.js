@@ -17,6 +17,8 @@ export const useStyles = makeStyles({
     fontWeight: 550,
     fontSize: 24,
     marginBottom: 10,
+    maxHeight: 80,
+    height: 80,
     color: "var(--black-color)",
   },
   description: {
@@ -34,8 +36,8 @@ export const useStyles = makeStyles({
     padding: 20,
   },
   ellipsis: {
-    textOverflow: "ellipsis",
-    overflow: "hidden",
+    maxHeight: 80,
+    height: 80,
   },
 });
 

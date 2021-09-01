@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Page from "../../components/Page/Page";
 
@@ -9,6 +9,7 @@ import "./LandingPage.css";
 
 import { makeStyles } from "@material-ui/core";
 import ItemList from "../../components/ItemList/ItemList";
+import { getTopMovies, getTopShows } from "../../api/videosApi";
 const useStyle = makeStyles({
   root: {
     color: "var(--button-color)",
@@ -22,12 +23,23 @@ const useStyle = makeStyles({
 });
 
 function LandingPage() {
+  const [itemList, setItemList] = useState([]);
   const [toggle, setToggle] = useState(0);
   const classes = useStyle();
 
   const handleToggle = (event, newVal) => {
     if (newVal !== null && newVal !== toggle) setToggle(newVal);
   };
+
+  useEffect(() => {
+    toggle === 0
+      ? getTopMovies()
+          .then((res) => setItemList(res.data.data))
+          .catch(console.log)
+      : getTopShows()
+          .then((res) => setItemList(res.data.data))
+          .catch(console.log);
+  }, [toggle]);
 
   return (
     <Page>
@@ -57,7 +69,7 @@ function LandingPage() {
       </div>
       <div className="landing-page-item-list">
         <div>
-          <ItemList />
+          <ItemList itemList={itemList} />
         </div>
       </div>
     </Page>
