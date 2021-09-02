@@ -1,6 +1,6 @@
 @media screen and (min-width: 625px) {
   .page-header {
-    grid-template-columns: 0.75fr 1.5fr 0.75fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .header-logo {

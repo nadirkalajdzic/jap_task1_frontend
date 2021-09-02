@@ -1,8 +1,14 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
-function PrivateRoute({ title, exact, path, component }) {
-  document.title = `Moviesapp | ${title}`;
+import LandingPage from "../pages/LandingPage/LandingPage";
+
+function PrivateRoute({ title, exact, path, component, authorize }) {
+  const isAuthenticated =
+    authorize !== undefined && localStorage.getItem("session") != null;
+
+  if (isAuthenticated) return <Redirect to="/" />;
+
   return <Route exact={exact} path={path} component={component} />;
 }
 

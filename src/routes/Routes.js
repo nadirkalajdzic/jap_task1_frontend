@@ -28,12 +28,16 @@ function Routes() {
         <PrivateRoute
           exact={true}
           path="/login"
+          authorize
+          isLoggedIn
           component={LoginPage}
           title="Login"
         />
         <PrivateRoute
           exact={true}
           path="/register"
+          authorize
+          isLoggedIn
           component={RegisterPage}
           title="Register"
         />
