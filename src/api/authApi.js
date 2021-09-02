@@ -12,3 +12,18 @@ export const loginUser = (email, password) => {
     },
   });
 };
+
+export const registerUser = (name, surname, email, password) => {
+  const params = JSON.stringify({
+    name: name,
+    surname: surname,
+    email: email,
+    password: password,
+  });
+
+  return axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, params, {
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+};

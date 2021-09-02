@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Input, Button } from "@material-ui/core";
@@ -10,6 +10,7 @@ import { Form } from "antd";
 import "./LoginPageForm.css";
 import "../AuthStyles.css";
 import useButtonStyle from "../Header/ButtonStyle";
+import { toast } from "react-toastify";
 
 const validStyleObj = { backgroundColor: "var(--valid-green-color)" };
 const invalidStyleObj = { backgroundColor: "var(--invalid-red-color)" };
@@ -39,6 +40,12 @@ function LoginPageForm() {
 
   const classes = useButtonStyle();
 
+  useEffect(() => {
+    if (emailStyle === validStyleObj && passwordStyle === validStyleObj)
+      setDisabled(false);
+    else setDisabled(true);
+  }, [emailStyle, passwordStyle]);
+
   const login = () => {
     setDisabled(true);
     loginUser(email, password)
@@ -49,6 +56,7 @@ function LoginPageForm() {
         };
         localStorage.setItem("session", JSON.stringify(obj));
         history.push("/");
+        toast.success("Logged in successfully");
       })
       .catch(console.log);
     setDisabled(false);
@@ -56,7 +64,7 @@ function LoginPageForm() {
 
   return (
     <div className="auth-page-form">
-      <Form onFinish={loginUser}>
+      <Form>
         <Form.Item name="email">
           <div className="auth-page-input">
             <div className="auth-page-single-input-label">
