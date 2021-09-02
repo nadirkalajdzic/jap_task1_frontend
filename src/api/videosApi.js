@@ -11,3 +11,11 @@ export const getTopShows = () => {
 export const getVideo = (id) => {
   return axios.get(`${process.env.REACT_APP_API_URL}/videos/item/${id}`);
 };
+
+export const getFilteredShows = (filter) => {
+  return axios.get(
+    `${process.env.REACT_APP_API_URL}/videos?search=${
+      filter == null ? "" : filter
+    }`
+  );
+};
