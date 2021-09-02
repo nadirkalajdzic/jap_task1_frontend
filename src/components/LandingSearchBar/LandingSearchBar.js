@@ -2,33 +2,40 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import parse from "autosuggest-highlight/parse";
+import match from "autosuggest-highlight/match";
+
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { getFilteredShows, getTopMovies } from "../../../api/videosApi";
+import {
+  getFilteredShows,
+  getTopMovies,
+  getTopShows,
+} from "../../api/videosApi";
 
-import "./HeaderSearch.css";
+import "./LandingSearchBar.css";
 
-export default function HeaderSearch() {
+export default function LandingSearchBar({ toggle }) {
   const [options, setOptions] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
   const history = useHistory();
 
   useEffect(() => {
     setIsLoading(true);
 
     const fetchData = setTimeout(async () => {
-      if (inputValue.length === 0)
-        getTopMovies()
-          .then((res) => setOptions(res.data.data))
-          .catch(() => toast.error("Failed to load data"));
+      var promise = null;
 
-      if (inputValue.length >= 2)
-        getFilteredShows(inputValue)
+      if (inputValue.length === 0)
+        promise = toggle === 0 ? getTopMovies() : getTopShows();
+      else if (inputValue.length >= 2) promise = getFilteredShows(inputValue);
+
+      if (promise != null)
+        promise
           .then((res) => setOptions(res.data.data))
           .catch(() => toast.error("Failed to load data"));
 
@@ -36,10 +43,10 @@ export default function HeaderSearch() {
     }, 1000);
 
     return () => clearTimeout(fetchData);
-  }, [inputValue]);
+  }, [inputValue, toggle]);
 
   const routeToItem = (val, newVal) => {
-    history.push(`/item/${newVal.id}`);
+    if (newVal != null) history.push(`/item/${newVal.id}`);
   };
 
   return (
@@ -62,9 +69,6 @@ export default function HeaderSearch() {
       getOptionSelected={(option, value) => option.title === value.title}
       options={options}
       loading={isLoading}
-      renderOption={(option, { inputValue }) => {
-        return <div>{option.title}</div>;
-      }}
       renderInput={(params) => (
         <TextField
           {...params}
@@ -76,6 +80,23 @@ export default function HeaderSearch() {
           }}
         />
       )}
+      renderOption={(option, { inputValue }) => {
+        const matches = match(option.title, inputValue);
+        const parts = parse(option.title, matches);
+
+        return (
+          <div>
+            {parts.map((part, index) => (
+              <span
+                key={index}
+                style={{ fontWeight: part.highlight ? 700 : 400 }}
+              >
+                {part.text}
+              </span>
+            ))}
+          </div>
+        );
+      }}
     />
   );
 }

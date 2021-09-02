@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Page from "../../components/Page/Page";
+import LandingSearchBar from "../../components/LandingSearchBar/LandingSearchBar";
 
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
@@ -51,6 +52,9 @@ function LandingPage() {
           A site where you can find all the information you need to find your
           next movie for a sunday night.
         </div>
+      </div>
+      <div>
+        <LandingSearchBar toggle={toggle} />
       </div>
       <div className="landing-page-toggle-buttons">
         <ToggleButtonGroup

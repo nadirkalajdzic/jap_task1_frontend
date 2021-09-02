@@ -5,7 +5,6 @@ import Button from "@material-ui/core/Button";
 import useButtonStyle from "./ButtonStyle";
 
 import "./Header.css";
-import HeaderSearch from "./HeaderSearch/HeaderSearch";
 
 function Header() {
   const history = useHistory();
@@ -20,9 +19,7 @@ function Header() {
       <div className="header-logo" onClick={routeToHome}>
         Moviesapp
       </div>
-      <div className="header-search-bar">
-        <HeaderSearch />
-      </div>
+      <div className="header-search-bar"></div>
       <div className="header-login-or-register">
         <Button className={classes.button} onClick={routeToLogin}>
           LOGIN

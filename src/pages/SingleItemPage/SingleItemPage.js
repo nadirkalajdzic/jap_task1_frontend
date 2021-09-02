@@ -34,14 +34,15 @@ function SingleItemPage() {
   const history = useHistory();
   const params = useParams();
   const classes = useStyles();
+  const [id, setId] = useState(params.id);
 
-  const id = params.id;
+  if (params.id !== id) setId(params.id);
 
   useEffect(() => {
     getVideo(id)
       .then((x) => setItem(x.data.data))
       .catch(() => history.push("/404"));
-  }, []);
+  }, [id]);
 
   if (item === undefined)
     return (
