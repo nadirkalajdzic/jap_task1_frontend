@@ -51,9 +51,16 @@
 .auth-page-button {
   margin: 50px auto;
   padding-bottom: 100px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
 }
 
 .auth-page-button > .MuiButton-root {
   min-width: 300px;
   width: 35%;
+}
+
+.auth-page-link-to {
+  margin-top: 10px;
 }

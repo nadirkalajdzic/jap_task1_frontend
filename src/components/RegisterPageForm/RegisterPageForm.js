@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { Input, Button } from "@material-ui/core";
@@ -208,6 +208,7 @@ function RegisterPageForm() {
             >
               REGISTER
             </Button>
+            <Link to="/login">Already registered? Login now.</Link>
           </div>
         </Form.Item>
       </Form>

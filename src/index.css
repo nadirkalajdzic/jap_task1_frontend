@@ -26,6 +26,10 @@ html {
   transform: none !important;
 }
 
+.MuiButtonBase-root.Mui-disabled {
+  color: var(--button-color);
+}
+
 .rotate {
   animation: rotation 2s infinite linear;
 }

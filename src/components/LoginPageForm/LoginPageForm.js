@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Input, Button } from "@material-ui/core";
 import { validateEmail } from "../../helpingFunctions";
@@ -110,6 +110,9 @@ function LoginPageForm() {
             >
               LOGIN
             </Button>
+            <div className="auth-page-link-to">
+              <Link to="/register">Not registered yet? Register now.</Link>
+            </div>
           </div>
         </Form.Item>
       </Form>
