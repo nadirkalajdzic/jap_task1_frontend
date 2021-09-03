@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import Page from "../../components/Page/Page";
 import LandingSearchBar from "../../components/LandingSearchBar/LandingSearchBar";
@@ -36,10 +37,10 @@ function LandingPage() {
     toggle === 0
       ? getTopMovies()
           .then((res) => setItemList(res.data.data))
-          .catch(console.log)
+          .catch(() => toast.error("Failed to load movies"))
       : getTopShows()
           .then((res) => setItemList(res.data.data))
-          .catch(console.log);
+          .catch(() => toast.error("Failed to load shows"));
   }, [toggle]);
 
   return (

@@ -58,7 +58,7 @@ function LoginPageForm() {
         history.push("/");
         toast.success("Logged in successfully");
       })
-      .catch(console.log);
+      .catch((err) => toast.error(err.response.data.message));
     setDisabled(false);
   };
 

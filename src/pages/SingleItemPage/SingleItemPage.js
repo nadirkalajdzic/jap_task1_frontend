@@ -42,7 +42,7 @@ function SingleItemPage() {
     getVideo(id)
       .then((x) => setItem(x.data.data))
       .catch(() => history.push("/404"));
-  }, [id]);
+  }, [id, history]);
 
   if (item === undefined)
     return (
@@ -86,10 +86,9 @@ function SingleItemPage() {
               <div>
                 <StyledRating
                   name="read-only"
-                  style={{ marginBottom: 10 }}
+                  style={{ marginBottom: 10, height: 30 }}
                   value={rating}
                   precision={0.1}
-                  style={{ height: 30 }}
                   readOnly
                 />
               </div>
@@ -101,9 +100,14 @@ function SingleItemPage() {
           <div className="margin-top font-styling inline">
             <div>Categories</div>
             <div className="single-item-page-chips">
-              {item.categories.map((x) => {
+              {item.categories.map((x, index) => {
                 return (
-                  <Chip size="small" label={x.name} className={classes.chip} />
+                  <Chip
+                    size="small"
+                    key={`categories-id-${index}`}
+                    label={x.name}
+                    className={classes.chip}
+                  />
                 );
               })}
             </div>
@@ -111,10 +115,11 @@ function SingleItemPage() {
           <div className="font-styling inline">
             <div>Actors</div>
             <div className="single-item-page-chips">
-              {item.actors.map((x) => {
+              {item.actors.map((x, index) => {
                 return (
                   <Chip
                     size="small"
+                    key={`actors-id-${index}`}
                     label={x.name + " " + x.surname}
                     className={classes.chip}
                   />

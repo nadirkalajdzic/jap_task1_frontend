@@ -23,9 +23,9 @@ function ItemList({ itemList }) {
   return (
     <div className="item-list">
       <div className="item-pair-list">
-        {rows.map((x, key) => {
+        {rows.map((x, index) => {
           return (
-            <div className="pair-item" id={`pair-item-${key}`}>
+            <div className="pair-item" key={`pair-item-${index}`}>
               <div>
                 <ItemCard item={x[0]} />
               </div>

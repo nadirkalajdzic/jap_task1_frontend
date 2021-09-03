@@ -41,12 +41,8 @@ function ItemCard({ item }) {
     }
 
     addRating(newVal, item.id)
-      .then((res) => {
-        res.data.success
-          ? toast.success(res.data.message)
-          : toast.error(res.data.message);
-      })
-      .catch((err) => toast.error(err.data.message));
+      .then((res) => toast.success(res.data.message))
+      .catch((err) => toast.error(err.response.data.message));
   };
 
   return (
@@ -78,6 +74,7 @@ function ItemCard({ item }) {
               placement="bottom"
             >
               <StyledRating
+                name={`rating-${item.id}`}
                 style={{ marginBottom: 10 }}
                 value={rating}
                 precision={0.1}

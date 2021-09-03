@@ -90,7 +90,7 @@ function RegisterPageForm() {
 
   const register = () => {
     registerUser(firstName, lastName, email, password)
-      .then((res) => {
+      .then(() => {
         history.push("/");
         toast.success("Registered in successfully");
       })
