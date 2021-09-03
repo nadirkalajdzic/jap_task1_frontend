@@ -12,8 +12,8 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import {
   getFilteredShows,
-  getTopMovies,
-  getTopShows,
+  getTop10Movies,
+  getTop10Shows,
 } from "../../api/videosApi";
 
 import "./LandingSearchBar.css";
@@ -31,7 +31,7 @@ export default function LandingSearchBar({ toggle }) {
       var promise = null;
 
       if (inputValue.length === 0)
-        promise = toggle === 0 ? getTopMovies() : getTopShows();
+        promise = toggle === 0 ? getTop10Movies() : getTop10Shows();
       else if (inputValue.length >= 2) promise = getFilteredShows(inputValue);
 
       if (promise != null)
