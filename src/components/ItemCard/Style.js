@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
   title: {
     fontWeight: 550,
     fontSize: 24,
-    marginBottom: 10,
+    marginTop: 10,
     maxHeight: 80,
     height: 80,
     color: "var(--black-color)",
